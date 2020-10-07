@@ -31,8 +31,14 @@ let config = {
             chunkFilename: '[id].css'
         } ),
         new HtmlWebpackPlugin( {
-            template: './src/views/index.html',
-            inject: true
+            template: './src/views/pages/index.ejs',
+            inject: true,
+            excludeChunks: [ 'server' ]
+        } ),
+        new HtmlWebpackPlugin( {
+            template: './src/views/pages/armory.ejs',
+            inject: true,
+            excludeChunks: [ 'server' ]
         } ),
     ],
     output: {
@@ -50,6 +56,18 @@ let config = {
                     options: {
                         presets: ['@babel/preset-env'],
                         plugins: ['@babel/plugin-transform-runtime']
+                    }
+                }
+            },
+            {
+                test: /\.ejs$/,
+                use: {
+                    loader: 'ejs-compiled-loader',
+                    options: {
+                        htmlmin: false,
+                        htmlminOptions: {
+                            removeComments: true
+                        }
                     }
                 }
             },
