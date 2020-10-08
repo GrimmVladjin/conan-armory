@@ -1,0 +1,32 @@
+.button {
+    display: inline-block;
+    padding: .75rem 2rem;
+    background-color: $primary-color;
+    border-radius: 7px;
+}
+
+a:link.button,
+a:visited.button {
+    color: whitesmoke;
+    text-decoration: none;
+    
+    span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-transform: uppercase;
+        font-weight: 300;
+    }
+
+    span:after {
+        display: inline-block;
+        content: '';
+        width: 15px;
+        height: 15px;
+        background-image: url( './../images/button-icon.svg' );
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+        margin-left: .5rem;
+    }
+}

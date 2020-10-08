@@ -11,7 +11,7 @@ const isDev = mode === "development";
 let config = {
     mode: 'development',
     entry: [
-        './src/scripts/index.js',
+        './src/scripts/app.js',
         'webpack-hot-middleware/client'
     ],
     devtool: 'inline-source-map',
@@ -62,13 +62,7 @@ let config = {
             {
                 test: /\.ejs$/,
                 use: {
-                    loader: 'ejs-compiled-loader',
-                    options: {
-                        htmlmin: false,
-                        htmlminOptions: {
-                            removeComments: true
-                        }
-                    }
+                    loader: 'ejs-loader?variable=data'
                 }
             },
             {
