@@ -12,6 +12,7 @@
 .banner-content {
     position: relative;
     z-index: 1;
+    max-width: 670px;
 }
 
 .main-banner {
@@ -44,5 +45,6 @@
 
     @media only screen and (min-width: 1024px) {
         height: 700px;
+        padding: 2rem 0;
     }
 }

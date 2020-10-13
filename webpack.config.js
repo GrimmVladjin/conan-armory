@@ -32,11 +32,13 @@ let config = {
         } ),
         new HtmlWebpackPlugin( {
             template: './src/views/pages/index.ejs',
+            filename: 'index.html',
             inject: true,
             excludeChunks: [ 'server' ]
         } ),
         new HtmlWebpackPlugin( {
             template: './src/views/pages/armory.ejs',
+            filename: 'armory.html',
             inject: true,
             excludeChunks: [ 'server' ]
         } ),
@@ -49,7 +51,7 @@ let config = {
     module: {
         rules: [
             {
-                test: /\.m?js$/,
+                test: /\.js$/,
                 exclude: /(node_modules)/,
                 use: {
                     loader: 'babel-loader',
@@ -59,14 +61,20 @@ let config = {
                     }
                 }
             },
+            // {
+            //     test: /\.ejs$/,
+            //     use: [
+            //         {
+            //             loader: 'ejs-loader',
+            //             options: {
+            //                 variable: 'data'
+            //                 //esModule: false
+            //             }
+            //         }
+            //     ]
+            // },
             {
-                test: /\.ejs$/,
-                use: {
-                    loader: 'ejs-loader?variable=data'
-                }
-            },
-            {
-                test: /\.(html)$/,
+                test: /\.html$/,
                 use: [
                     'html-loader'
                 ]
@@ -95,13 +103,6 @@ let config = {
                         options: {
                             outputPath: 'images',
                             name: '[name].[ext]'
-                        }
-                    },
-                    {
-                        loader: 'image-webpack-loader',
-                        options: {
-                            bypassOnDebug: true,
-                            disable: true
                         }
                     }
                 ],

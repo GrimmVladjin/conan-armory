@@ -1,0 +1,14 @@
+.about-section .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    div {
+        width: 50%;
+    }
+
+    img {
+        display: block;
+        width: 50%;
+    }
+}
